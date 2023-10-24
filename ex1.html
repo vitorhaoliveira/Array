@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    <p>Lanche: <span id="opcao1"></span></p>
+    <p>Acompanhamento: <span id="opcao2"></span></p>
+    <p>Bebida: <span id="opcao3"></span></p>
+    <p>Valor total: <span id="valor"></span></p>
+    <script>
+        let opcao1 = Number(prompt("Bem- Vindo a hamburgeria do seu Joca\n Qual lanche você vai escolher\n (1) = X1 -  R$1,38\n (2) = X2 - R$2,31\n (3) = X3 -  R$2,81\n (4) = X4 -  R$3,21\n Digite 0 para não escolher o lanche"));
+
+        const hamburger = { X1: 1.38, X2: 2.31, X3: 2.81, X4: 3.21 };
+        const acomp = { Nuggets: 3.69, Fritas: 1.58 };
+        const bebida = { Cocacola: 1.48, Fanta: 2.58, agua: 0.98 };
+        let valor = 0;
+        let ham = "";
+        let acomp2 = "";
+        let beb = ""
+
+        while (opcao1 > 4 || opcao1 < 0 || opcao1 % 1 != 0) {
+            alert("Opção Inválida, digite uma opção de 0 a 4")
+            opcao1 = Number(prompt("Qual lanche você vai escolher\n (1) = X1 -  R$1,38\n (2) = X2 -  R$2,31\n (3) = X3 -  R$2,81\n (4) = X4 -  R$3,21\n Digite 0 para não escolher o lanche"));
+        }
+
+        switch (opcao1) {
+            case 1:
+                valor = hamburger.X1;
+                ham = "X1" + " R$" + hamburger.X1
+                break;
+            case 2:
+                valor = hamburger.X2;
+                ham = "X2" + " R$" + hamburger.X2
+                break;
+            case 3:
+                valor = hamburger.X3;
+                ham = "X3" + " R$" + hamburger.X3
+                break;
+            case 4:
+                valor = hamburger.X4;
+                ham = "X4" + " R$" + hamburger.X4
+                break;
+            case 0:
+                ham = "Não escolhido";
+                break;
+            default:
+                alert("Opção errada");
+                break;
+        }
+
+        let opcao2 = Number(prompt("Qual acompanhamento você vai escolher\n (1) = Nuggets -  R$3,69\n (2) = Fritas -  R$1,58\n Digite 0 para não escolher o acompanhamento"));
+
+        while (opcao2 > 2 || opcao2 < 0 || opcao2 % 1 != 0) {
+            alert("Opção Inválida, digite 0 a 2")
+            opcao2 = Number(prompt("Qual acompanhamento você vai escolher\n (1) = Nuggets -  R$3,69\n (2) = Fritas -  R$1,58\n Digite 0 para não escolher o acompanhamento"));
+        }
+
+        switch (opcao2) {
+            case 1:
+                valor += acomp.Nuggets;
+                acomp2 = "Nuggets" + " R$" + acomp.Nuggets
+                break;
+            case 2:
+                valor += acomp.Fritas;
+                acomp2 = "Fritas" + " R$" + acomp.Fritas
+                break;
+            case 0:
+                acomp2 = "Não escolhido";
+                break;
+            default:
+                alert("Opção errada");
+                break;
+        }
+
+        let opcao3 = Number(prompt("Qual bebida você vai escolher\n (1) = Coca-Cola -  R$1,48\n (2) = Fanta -  R$2,58\n (3) = Água - R$0,98\n Digite 0 para não escolher a bebida"));
+
+        while (opcao3 > 3 || opcao3 < 0 || opcao3 % 1 != 0) {
+            alert("Opção Inválida, digite 0 a 3")
+            opcao3 = Number(prompt("Qual bebida você vai escolher\n (1) = Nuggets -  R$3,69\n (2) = Fritas -  R$1,58\n Digite 0 para não escolher a bebida"));
+        }
+
+        switch (opcao3) {
+            case 1:
+                valor += bebida.Cocacola;
+                beb = "Coca-Cola" + " R$" + bebida.Cocacola
+                break;
+            case 2:
+                valor += bebida.Fanta;
+                beb = "Fanta" + " R$" + bebida.Fanta
+                break;
+            case 3:
+                valor += bebida.agua;
+                beb = "Água" + " R$" + bebida.agua
+                break;
+            case 0:
+                beb = "Não escolhida";
+                break;
+            default:
+                alert("Opção errada");
+                break;
+        }
+
+
+        
+        document.getElementById("opcao1").innerHTML = ham
+        document.getElementById("opcao2").innerHTML = acomp2
+        document.getElementById("opcao3").innerHTML = beb
+        document.getElementById("valor").innerHTML = "R$" + valor.toFixed(2)
+    </script>
+</body>
+</html>
